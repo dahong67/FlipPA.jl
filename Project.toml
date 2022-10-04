@@ -1,0 +1,7 @@
+name = "FlipPA"
+uuid = "a9676066-08b1-4647-a3cf-89b449beb4d6"
+authors = ["David Hong <dahong67@wharton.upenn.edu> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.6"
