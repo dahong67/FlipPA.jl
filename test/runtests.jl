@@ -1,8 +1,3 @@
-using FlipPA
-using Test
-using FlipPA: Pairwise, UpperEdge, _compare_svdvals
-using FlipPA: PAconfig
-using StableRNGs
+using TestItemRunner
 
-include("items/comparison.jl")
-include("items/parallel-analysis.jl")
+@run_package_tests

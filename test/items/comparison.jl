@@ -1,7 +1,9 @@
 ## Comparison methods
 
-@testset "Comparison methods" begin
-    # Low-rank where stopping at first violation != counting nonviolations
+# Low-rank where stopping at first violation != counting nonviolations
+@testitem "stopping at first violation != counting nonviolations" begin
+    using FlipPA: Pairwise, UpperEdge, _compare_svdvals
+
     σ = 4:-0.1:1
     σt = [[σ[1:3] .+ t; σ[4]; σ[5:end] .+ t] for t in -0.5:0.1:0.5]
 
@@ -13,8 +15,12 @@
         @test _compare_svdvals(σ, σt, i / 10, UpperEdge()) == max(5 - i, 0)
         @test _compare_svdvals(σ, σt, (i + 1) / 10 - 1e-10, UpperEdge()) == max(5 - i, 0)
     end
+end
 
-    # Full-rank where all are selected
+# Full-rank where all are selected
+@testitem "full-rank where all are selected" begin
+    using FlipPA: Pairwise, UpperEdge, _compare_svdvals
+
     σ = 4:-0.1:3.6
     σt = [σ .+ t for t in -0.5:0.1:0.5]
 
