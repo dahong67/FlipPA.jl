@@ -4,14 +4,15 @@
     using FlipPA: PAconfig, Pairwise, UpperEdge
     using StableRNGs
 
-    @testset "quantile=$quantile, trials=$trials, cmp=$cmp, seed=$seed" for quantile in
-                                                                            0:0.1:1,
+    @testset "quantile=$quantile, trials=$trials, threshold=$threshold, cmp=$cmp, seed=$seed" for quantile in
+                                                                                                  0:0.1:1,
         trials in [1, 10, 100],
+        threshold in 0:0.1:0.3,
         cmp in [Pairwise(), UpperEdge()],
         seed in 0:3
 
         rng = StableRNG(seed)
-        @test PAconfig(quantile, trials, cmp, rng) isa
+        @test PAconfig(quantile, trials, threshold, cmp, rng) isa
               PAconfig{Float64,Int64,typeof(cmp),StableRNGs.LehmerRNG}
     end
 end
