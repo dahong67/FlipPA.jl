@@ -28,9 +28,6 @@ jobs:
         exclude:
           - version: 'min'
             os: macOS-latest
-        include:
-          - version: 'min'
-            os: macos-13
     steps:
       - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v3
