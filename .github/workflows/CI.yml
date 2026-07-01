@@ -25,7 +25,7 @@ jobs:
           - ubuntu-latest
           - macOS-latest
           - windows-latest
-        exclude:
+        exclude:    # Julia 1.6 doesn't have ARM version
           - version: 'min'
             os: macOS-latest
     steps:
